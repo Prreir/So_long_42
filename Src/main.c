@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 	savemap(&data, argv[1]);
 	checkmap(&data);
 	init(&data);
+	putimg(&data);
 	mlx_hook(data.mlx.win_ptr, 17, 1L << 2, xbotton, &data);
 	mlx_loop(data.mlx.mlx_ptr);
 	freemap(&data);

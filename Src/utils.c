@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lugoncal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:13:11 by lugoncal          #+#    #+#             */
-/*   Updated: 2023/02/14 11:13:12 by lugoncal         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:35:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ void	iniciar(t_data *data)
 	data->itens.player = 0;
 	data->itens.player_x = 0;
 	data->itens.player_y = 0;
+	data->textures.wall = 0;
+	data->textures.empty = 0;
+	data->textures.collec = 0;
+	data->textures.exit = 0;
+	data->textures.player = 0;
 }

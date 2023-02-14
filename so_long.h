@@ -19,6 +19,15 @@
 
 # define WSIZE 64
 
+typedef struct s_textures
+{
+	void	*collec;
+	void	*exit;
+	void	*player;
+	void	*wall;
+	void	*empty;
+}	t_textures;
+
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
@@ -43,7 +52,12 @@ typedef struct s_data
 	char	**lines;
 	t_itens	itens;
 	t_mlx	mlx;
+	t_textures	textures;
 }	t_data;
+
+//textures.c
+void    renderimg(t_data *data);
+void    putimg(t_data *data);
 
 //mlxutils.c
 void	gameclose(t_data *data);
