@@ -87,14 +87,14 @@ void	checkchar(t_data *data)
 		{
 			if (data->lines[i][j] == 'C')
 				data->itens.collec++;
-			else if (data->lines[i][j] == 'E')
-			{
-				data->itens.exit++;
-				setposition(data, i, j);
-			}
 			else if (data->lines[i][j] == 'P')
 			{
 				data->itens.player++;
+				setposition(data, i, j);
+			}
+			else if (data->lines[i][j] == 'E')
+			{
+				data->itens.exit++;
 				setposition(data, i, j);
 			}
 		}
@@ -103,12 +103,12 @@ void	checkchar(t_data *data)
 
 void	setposition(t_data *data, int i, int j)
 {
-	if (data->itens.exit != 0)
+	if (data->lines[i][j] == 'E')
 	{
 		data->itens.exit_x = j;
 		data->itens.exit_y = i;
 	}
-	if (data->itens.player != 0)
+	if (data->lines[i][j] == 'P')
 	{
 		data->itens.player_x = j;
 		data->itens.player_y = i;

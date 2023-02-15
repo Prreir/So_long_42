@@ -19,23 +19,33 @@
 
 # define WSIZE 64
 
-typedef struct s_textures
-{
+# define PLAYERS 1
+# define PLAYERW 2
+# define PLAYERA 3
+# define PLAYERD 4
+
+typedef struct s_textures{
 	void	*collec;
+	void	*collec2;
+	void	*collec3;
+	void	*collec4;
+	void	*collec5;
+	void	*collec6;
 	void	*exit;
-	void	*player;
+	void	*players;
+	void	*playerw;
+	void	*playera;
+	void	*playerd;
 	void	*wall;
 	void	*empty;
 }	t_textures;
 
-typedef struct s_mlx
-{
+typedef struct s_mlx{
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_mlx;
 
-typedef struct s_itens
-{
+typedef struct s_itens{
 	int		collec;
 	int		exit;
 	int		exit_x;
@@ -45,8 +55,7 @@ typedef struct s_itens
 	int		player_y;
 }	t_itens;
 
-typedef struct s_data
-{
+typedef struct s_data{
 	int		comp;
 	int		alt;
 	char	**lines;
@@ -55,13 +64,17 @@ typedef struct s_data
 	t_textures	textures;
 }	t_data;
 
-//textures.c
-void    renderimg(t_data *data);
-void    putimg(t_data *data);
+//uploadmap.c
+int		uploadmap(t_data *data, int p);
 
-//mlxutils.c
-void	gameclose(t_data *data);
-int		xbotton(void *data);
+//hooks.c
+int		keypress(int keycode, t_data *data);
+int		closex(void *data);
+
+//textures.c
+void	putimg(t_data *data);
+void	renderimg(t_data *data);
+void	destroytextures(t_data *data);
 
 //mlx.c
 void	init(t_data *data);
@@ -82,6 +95,7 @@ void	getsize(t_data *data, char *map);
 void	iniciar(t_data *data);
 void	error_msg(char *msg, t_data *data);
 void	freemap(t_data *data);
+void	killgame(t_data *data);
 
 //main.c
 void	checkargs(int argc, char **argv, t_data *data);
