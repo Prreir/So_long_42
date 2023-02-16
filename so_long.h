@@ -16,6 +16,7 @@
 # include "Libft/libft.h"
 # include "Libft/get_next_line.h"
 # include "mlx/mlx.h"
+# include "mlx/mlx_int.h"
 
 # define WSIZE 64
 
@@ -26,12 +27,8 @@
 
 typedef struct s_textures{
 	void	*collec;
-	void	*collec2;
-	void	*collec3;
-	void	*collec4;
-	void	*collec5;
-	void	*collec6;
 	void	*exit;
+	void	*exit2;
 	void	*players;
 	void	*playerw;
 	void	*playera;
@@ -65,9 +62,13 @@ typedef struct s_data{
 }	t_data;
 
 //uploadmap.c
+void	uploadcollec(t_data *data, int y, int x, int c);
+void	uploadimg(t_data *data, void *textures, int y, int x);
 int		uploadmap(t_data *data, int p);
 
 //hooks.c
+void 	rendercolect(t_data *data, int y, int x, int p);
+int		collec(t_data *data);
 int		keypress(int keycode, t_data *data);
 int		closex(void *data);
 

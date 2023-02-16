@@ -42,8 +42,10 @@ void	uploadtextures(t_data *data, int y, int x, int p)
 		uploadimg(data, data->textures.empty, y, x);
 	else if (data->lines[y][x] == 'C')
 		uploadimg(data, data->textures.collec, y, x);
-	else if (data->lines[y][x] == 'E')
+	else if (data->lines[y][x] == 'E' && data->itens.collec != 0)
 		uploadimg(data, data->textures.exit, y, x);
+	else if (data->lines[y][x] == 'E' && data->itens.collec == 0)
+		uploadimg(data, data->textures.exit2, y, x);
 	else if (data->lines[y][x] == 'P')
 		uploadplayer(data, y, x, p);
 }

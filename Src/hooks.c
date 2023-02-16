@@ -21,7 +21,7 @@ void	playermove(t_data *data, int y, int x, int p)
 	last_y = data->itens.player_y;
 	if (data->lines[y][x] == 'E' && data->itens.collec == 0)
 	{
-		ft_putstr_fd("WIN!", 1);
+		ft_putstr_fd("WIN!\n", 1);
 		killgame(data);
 	}
 	else if (data->lines[y][x] != '1')
