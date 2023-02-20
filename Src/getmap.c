@@ -72,14 +72,13 @@ void	savemap2(t_data *data, int fd)
 			error_msg("In memory", data);
 		}
 		data->lines[y] = malloc(data->comp + 1);
-		x = 0;
-		while (x < data->comp)
-		{
+		x = -1;
+		while (++x < data->comp)
 			data->lines[y][x] = line[x];
-			x++;
-		}
 		data->lines[y][data->comp] = '\0';
 		free(line);
 		y++;
 	}
+	line = get_next_line(fd);
+	free(line);
 }
