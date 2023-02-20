@@ -5,8 +5,6 @@
 
 <h2 align="left">📝 Testers</h2>
 
-- [GNLTester](https://github.com/Tripouille/gnlTester)
-
-- [GNL-Station-Tester](https://github.com/kodpe/gnl-station-tester)
+- [So_Long_Tester](https://github.com/augustobecker/so_long_tester)
 
 Made by Luís Pereira (Prreir) | lugoncal@student.42porto.com
