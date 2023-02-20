@@ -20,13 +20,9 @@
 
 # define WSIZE 64
 
-# define PLAYERS 1
-# define PLAYERW 2
-# define PLAYERA 3
-# define PLAYERD 4
-
 typedef struct s_textures{
 	void	*collec;
+	void	*collec2;
 	void	*exit;
 	void	*exit2;
 	void	*players;
@@ -56,21 +52,31 @@ typedef struct s_data{
 	int		comp;
 	int		alt;
 	char	**lines;
+	char	**clone;
+	int		mov;
 	t_itens	itens;
 	t_mlx	mlx;
 	t_textures	textures;
 }	t_data;
 
+//floodfill.c
+void	floodfill(t_data *data);
+void	floodfill2(t_data *data, int y, int x);
+void	checkpath(t_data *data);
+void	checkpath2(t_data *data, int i, int j);
+
 //uploadmap.c
+void	uploadtextures(t_data *data, int y, int x, int p);
 void	uploadcollec(t_data *data, int y, int x, int c);
 void	uploadimg(t_data *data, void *textures, int y, int x);
 int		uploadmap(t_data *data, int p);
+void	uploadmov(t_data *data, int mov);
 
 //hooks.c
-void 	rendercolect(t_data *data, int y, int x, int p);
-int		collec(t_data *data);
+void	playermove(t_data *data, int y, int x, int p);
 int		keypress(int keycode, t_data *data);
 int		closex(void *data);
+int		collect(t_data *data);
 
 //textures.c
 void	putimg(t_data *data);

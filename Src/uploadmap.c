@@ -12,6 +12,21 @@
 
 #include "../so_long.h"
 
+void	uploadmov(t_data *data, int mov)
+{
+	char	*move;
+
+	move = ft_itoa(mov);
+	ft_putstr_fd("Move: ", 1);
+	ft_putstr_fd(move, 1);
+	ft_putstr_fd("\n", 1);
+	mlx_string_put(data->mlx.mlx_ptr, data->mlx.win_ptr, \
+	50, 75, 0x00000000, "Move: ");
+	mlx_string_put(data->mlx.mlx_ptr, data->mlx.win_ptr, \
+	80, 75, 0x00000000, move);
+	free(move);
+}
+
 void	uploadplayer(t_data *data, int y, int x, int p)
 {
 	if (p == 1)
@@ -50,17 +65,18 @@ void	uploadtextures(t_data *data, int y, int x, int p)
 		uploadplayer(data, y, x, p);
 }
 
-int		uploadmap(t_data *data, int p)
+int	uploadmap(t_data *data, int p)
 {
 	int		i;
 	int		j;
 
 	i = -1;
-	while(++i < data->alt)
+	while (++i < data->alt)
 	{
 		j = -1;
 		while (++j < data->comp)
 			uploadtextures(data, i, j, p);
 	}
+	uploadmov(data, ++data->mov);
 	return (0);
 }

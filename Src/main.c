@@ -36,10 +36,12 @@ int	main(int argc, char **argv)
 	getsize(&data, argv[1]);
 	savemap(&data, argv[1]);
 	checkmap(&data);
+	floodfill(&data);
 	init(&data);
 	putimg(&data);
 	mlx_hook(data.mlx.win_ptr, 2, (1L << 0), keypress, &data);
 	mlx_hook(data.mlx.win_ptr, 17, (1L << 2), closex, &data);
+	//mlx_loop_hook(data.mlx.mlx_ptr, collect, &data);
 	mlx_loop(data.mlx.mlx_ptr);
 	freemap(&data);
 	return (0);

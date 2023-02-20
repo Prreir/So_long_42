@@ -17,8 +17,10 @@ void	killgame(t_data *data)
 	destroytextures(data);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 	mlx_destroy_display(data->mlx.mlx_ptr);
-	freemap(data);
 	free(data->mlx.mlx_ptr);
+	freemap(data);
+	free(data->clone);
+	free(data->lines);
 	exit(0);
 }
 
@@ -30,9 +32,9 @@ void	freemap(t_data *data)
 	while (i < data->alt)
 	{
 		free(data->lines[i]);
+		free(data->clone[i]);
 		i++;
 	}
-	free(data->lines);
 }
 
 void	error_msg(char *msg, t_data *data)
@@ -50,6 +52,8 @@ void	iniciar(t_data *data)
 	data->comp = 0;
 	data->alt = 0;
 	data->lines = NULL;
+	data->clone = NULL;
+	data->mov = 0;
 	data->itens.collec = 0;
 	data->itens.exit = 0;
 	data->itens.exit_x = 0;
@@ -60,6 +64,7 @@ void	iniciar(t_data *data)
 	data->textures.wall = 0;
 	data->textures.empty = 0;
 	data->textures.collec = 0;
+	data->textures.collec2 = 0;
 	data->textures.exit = 0;
 	data->textures.exit2 = 0;
 	data->textures.players = 0;

@@ -28,6 +28,8 @@ char	*ft_s(char *save)
 		return (NULL);
 	}
 	dest = malloc(((ft_strlen(save) - i) + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
 	i++;
 	j = 0;
 	while (save[i])
@@ -50,6 +52,11 @@ char	*ft_gl(char *save)
 	while (save[i] && save[i] != '\n')
 		i++;
 	line = malloc((i + 2) * sizeof(char));
+	if (!line)
+	{
+		free(line);
+		return (NULL);
+	}
 	while (j <= i)
 	{
 		line[j] = save[j];

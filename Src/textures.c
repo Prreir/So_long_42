@@ -15,6 +15,7 @@
 void	destroytextures(t_data *data)
 {
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.collec);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.collec2);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.exit);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.exit2);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.players);
@@ -49,8 +50,8 @@ void	renderimg(t_data *data)
 				mlx_put_image_to_window(data->mlx.mlx_ptr, \
 				data->mlx.win_ptr, data->textures.exit, WSIZE * j, WSIZE * i);
 			else if (data->lines[i][j] == 'P')
-				mlx_put_image_to_window(data->mlx.mlx_ptr, \
-				data->mlx.win_ptr, data->textures.players, WSIZE * j, WSIZE * i);
+				mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
+				data->textures.players, WSIZE * j, WSIZE * i);
 		}
 	}
 }
@@ -66,6 +67,8 @@ void	putimg(t_data *data)
 	"./Textures/Empty.xpm", &imgsize, &imgsize);
 	data->textures.collec = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
 	"./Textures/Colect.xpm", &imgsize, &imgsize);
+	data->textures.collec2 = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
+	"./Textures/Colect2.xpm", &imgsize, &imgsize);
 	data->textures.exit = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
 	"./Textures/Exit.xpm", &imgsize, &imgsize);
 	data->textures.exit2 = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \

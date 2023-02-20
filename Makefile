@@ -17,7 +17,7 @@ LIBFT = ./Libft/libft.a
 MLX = -L ./mlx -lmlx -Ilmlx -lXext -lX11
 
 SRC = ./Src/main.c ./Src/utils.c ./Src/getmap.c ./Src/checkmap.c ./Src/mlx.c \
-	./Src/textures.c ./Src/hooks.c ./Src/uploadmap.c
+	./Src/textures.c ./Src/hooks.c ./Src/uploadmap.c ./Src/floodfill.c
 
 OBJ = $(SRC:.c=.o)
 

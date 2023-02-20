@@ -26,7 +26,10 @@ void	getsize(t_data *data, char *map)
 	{
 		tmp = get_next_line(fd);
 		if (!tmp)
+		{
+			free(tmp);
 			break ;
+		}
 		if (data->comp == 0)
 			data->comp = ft_strlen(tmp) - 1;
 		checkrectangle(fd, tmp, data);
@@ -64,6 +67,7 @@ void	savemap2(t_data *data, int fd)
 		line = get_next_line(fd);
 		if (!line)
 		{
+			free(line);
 			data->alt = y;
 			error_msg("In memory", data);
 		}
