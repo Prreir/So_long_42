@@ -10,12 +10,12 @@
 `make fclean` - Deletes _So_long and all the resulting object files  
 `make re` - Deletes everything (object files and _So_long_) and rebuilds _So_long_
 
-<h2 align="left">📝 Usefull Links</h2>
+<h2 align="left">🔗 Usefull Links</h2>
 
 - [Docs MiniLibx](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html)
 - [Itch.io](https://itch.io/game-assets/free/tag-sprites)
 
-<h2 align="left">📝 Usefull Links</h2>
+<h2 align="left">📌 Assets Credit</h2>
 
 - [Coin](https://merlym.itch.io/coin)
 - [Little Pingu](https://jitsukoan.itch.io/little-pingu)
