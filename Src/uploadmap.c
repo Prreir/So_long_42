@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   uploadmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lugoncal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:36:43 by lugoncal          #+#    #+#             */
-/*   Updated: 2023/02/15 13:36:44 by lugoncal         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:21:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,42 +27,42 @@ void	uploadmov(t_data *data, int mov)
 	free(move);
 }
 
-void	uploadplayer(t_data *data, int y, int x, int p)
+void	uploadplayer(t_data *data, int i, int j, int p)
 {
 	if (p == 1)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.players, WSIZE * x, WSIZE * y);
+		data->textures.players, WSIZE * j, WSIZE * i);
 	else if (p == 2)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.playerw, WSIZE * x, WSIZE * y);
+		data->textures.playerw, WSIZE * j, WSIZE * i);
 	else if (p == 3)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.playera, WSIZE * x, WSIZE * y);
+		data->textures.playera, WSIZE * j, WSIZE * i);
 	else if (p == 4)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.playerd, WSIZE * x, WSIZE * y);
+		data->textures.playerd, WSIZE * j, WSIZE * i);
 }
 
-void	uploadimg(t_data *data, void *textures, int y, int x)
+void	uploadimg(t_data *data, void *textures, int i, int j)
 {
 	mlx_put_image_to_window(data->mlx.mlx_ptr, \
-	data->mlx.win_ptr, textures, WSIZE * x, WSIZE * y);
+	data->mlx.win_ptr, textures, WSIZE * j, WSIZE * i);
 }
 
-void	uploadtextures(t_data *data, int y, int x, int p)
+void	uploadtextures(t_data *data, int i, int j, int p)
 {
-	if (data->lines[y][x] == '1')
-		uploadimg(data, data->textures.wall, y, x);
-	else if (data->lines[y][x] == '0')
-		uploadimg(data, data->textures.empty, y, x);
-	else if (data->lines[y][x] == 'C')
-		uploadimg(data, data->textures.collec, y, x);
-	else if (data->lines[y][x] == 'E' && data->itens.collec != 0)
-		uploadimg(data, data->textures.exit, y, x);
-	else if (data->lines[y][x] == 'E' && data->itens.collec == 0)
-		uploadimg(data, data->textures.exit2, y, x);
-	else if (data->lines[y][x] == 'P')
-		uploadplayer(data, y, x, p);
+	if (data->lines[i][j] == '1')
+		uploadimg(data, data->textures.wall, i, j);
+	else if (data->lines[i][j] == '0')
+		uploadimg(data, data->textures.empty, i, j);
+	else if (data->lines[i][j] == 'C')
+		uploadimg(data, data->textures.collec, i, j);
+	else if (data->lines[i][j] == 'E' && data->itens.collec != 0)
+		uploadimg(data, data->textures.exit, i, j);
+	else if (data->lines[i][j] == 'E' && data->itens.collec == 0)
+		uploadimg(data, data->textures.exit2, i, j);
+	else if (data->lines[i][j] == 'P')
+		uploadplayer(data, i, j, p);
 }
 
 int	uploadmap(t_data *data, int p)

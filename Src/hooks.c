@@ -3,60 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lugoncal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:22:07 by lugoncal          #+#    #+#             */
-/*   Updated: 2023/02/15 10:22:08 by lugoncal         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:25:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	collect(t_data *data)
-{
-	int		i;
-	int		j;
-
-	i = -1;
-	while (++i < data->alt)
-	{
-		j = -1;
-		while (++j < data->comp)
-		{
-			if (data->lines[i][j] == 'C')
-			{
-				mlx_put_image_to_window(data->mlx.mlx_ptr, \
-				data->mlx.win_ptr, data->textures.collec, WSIZE * j, WSIZE * i);
-				usleep(40000);
-				mlx_put_image_to_window(data->mlx.mlx_ptr, \
-				data->mlx.win_ptr, data->textures.collec2, WSIZE * j, WSIZE * i);
-			}
-		}
-	}
-	return (0);
-}
-
-void	playermove(t_data *data, int y, int x, int p)
+void	playermove(t_data *data, int i, int j, int p)
 {
 	int		last_x;
 	int		last_y;
 
 	last_x = data->itens.player_x;
 	last_y = data->itens.player_y;
-	if (data->lines[y][x] == 'E' && data->itens.collec == 0)
+	if (data->lines[i][j] == 'E' && data->itens.collec == 0)
 	{
 		uploadmov(data, ++data->mov);
 		ft_putstr_fd("WIN!\n", 1);
 		killgame(data);
 	}
-	else if (data->lines[y][x] != '1')
+	else if (data->lines[i][j] != '1')
 	{
 		data->lines[last_y][last_x] = '0';
-		if (data->lines[y][x] == 'C')
+		if (data->lines[i][j] == 'C')
 			data->itens.collec--;
-		data->itens.player_x = x;
-		data->itens.player_y = y;
-		data->lines[y][x] = 'P';
+		data->itens.player_x = j;
+		data->itens.player_y = i;
+		data->lines[i][j] = 'P';
 		if (data->lines[data->itens.exit_y][data->itens.exit_x] != 'P')
 			data->lines[data->itens.exit_y][data->itens.exit_x] = 'E';
 		uploadmap(data, p);

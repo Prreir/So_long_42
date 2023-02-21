@@ -15,7 +15,6 @@
 void	destroytextures(t_data *data)
 {
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.collec);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.collec2);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.exit);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.exit2);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->textures.players);
@@ -56,6 +55,14 @@ void	renderimg(t_data *data)
 	}
 }
 
+void	putimg2(t_data *data)
+{
+	if (!data->textures.wall || !data->textures.empty || \
+	!data->textures.collec || !data->textures.exit || !data->textures.players)
+		error_msg("Missing images", data);
+	renderimg(data);
+}
+
 void	putimg(t_data *data)
 {
 	int	imgsize;
@@ -67,8 +74,6 @@ void	putimg(t_data *data)
 	"./Textures/Empty.xpm", &imgsize, &imgsize);
 	data->textures.collec = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
 	"./Textures/Colect.xpm", &imgsize, &imgsize);
-	data->textures.collec2 = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
-	"./Textures/Colect2.xpm", &imgsize, &imgsize);
 	data->textures.exit = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
 	"./Textures/Exit.xpm", &imgsize, &imgsize);
 	data->textures.exit2 = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
@@ -81,8 +86,5 @@ void	putimg(t_data *data)
 	"./Textures/Playere.xpm", &imgsize, &imgsize);
 	data->textures.playerd = mlx_xpm_file_to_image(data->mlx.mlx_ptr, \
 	"./Textures/Playerd.xpm", &imgsize, &imgsize);
-	if (!data->textures.wall || !data->textures.empty || \
-	!data->textures.collec || !data->textures.exit || !data->textures.players)
-		error_msg("Missing images", data);
-	renderimg(data);
+	putimg2(data);
 }

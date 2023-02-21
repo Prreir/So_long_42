@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:13:11 by lugoncal          #+#    #+#             */
-/*   Updated: 2023/02/14 18:35:42 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/21 13:14:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	killgame(t_data *data)
 	mlx_destroy_display(data->mlx.mlx_ptr);
 	free(data->mlx.mlx_ptr);
 	freemap(data);
-	free(data->clone);
-	free(data->lines);
 	exit(0);
 }
 
@@ -35,6 +33,8 @@ void	freemap(t_data *data)
 		free(data->clone[i]);
 		i++;
 	}
+	free(data->clone);
+	free(data->lines);
 }
 
 void	error_msg(char *msg, t_data *data)
@@ -64,7 +64,6 @@ void	iniciar(t_data *data)
 	data->textures.wall = 0;
 	data->textures.empty = 0;
 	data->textures.collec = 0;
-	data->textures.collec2 = 0;
 	data->textures.exit = 0;
 	data->textures.exit2 = 0;
 	data->textures.players = 0;

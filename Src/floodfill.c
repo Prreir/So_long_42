@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floodfill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lugoncal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 09:31:10 by lugoncal          #+#    #+#             */
-/*   Updated: 2023/02/20 09:31:11 by lugoncal         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:16:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,20 @@ void	checkpath(t_data *data)
 	}
 }
 
-void	floodfill2(t_data *data, int y, int x)
+void	floodfill2(t_data *data, int i, int j)
 {
-	if (y < 0 || x < 0)
+	if (i < 0 || j < 0)
 		return ;
-	if (data->clone[y][x] == 'F' || data->clone[y][x] == '1')
+	if (data->clone[i][j] == 'F' || data->clone[i][j] == '1')
 		return ;
-	if (data->clone[y][x] == 'C')
-		data->clone[y][x] = 'C';
+	if (data->clone[i][j] == 'C')
+		data->clone[i][j] = 'C';
 	else
-		data->clone[y][x] = 'F';
-	floodfill2(data, y + 1, x);
-	floodfill2(data, y - 1, x);
-	floodfill2(data, y, x -1);
-	floodfill2(data, y, x + 1);
+		data->clone[i][j] = 'F';
+	floodfill2(data, i + 1, j);
+	floodfill2(data, i - 1, j);
+	floodfill2(data, i, j -1);
+	floodfill2(data, i, j + 1);
 }
 
 void	floodfill(t_data *data)

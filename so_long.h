@@ -22,7 +22,6 @@
 
 typedef struct s_textures{
 	void	*collec;
-	void	*collec2;
 	void	*exit;
 	void	*exit2;
 	void	*players;
@@ -61,25 +60,25 @@ typedef struct s_data{
 
 //floodfill.c
 void	floodfill(t_data *data);
-void	floodfill2(t_data *data, int y, int x);
+void	floodfill2(t_data *data, int i, int j);
 void	checkpath(t_data *data);
 void	checkpath2(t_data *data, int i, int j);
 
 //uploadmap.c
-void	uploadtextures(t_data *data, int y, int x, int p);
-void	uploadcollec(t_data *data, int y, int x, int c);
-void	uploadimg(t_data *data, void *textures, int y, int x);
+void	uploadtextures(t_data *data, int i, int j, int p);
+void	uploadcollec(t_data *data, int i, int j, int c);
+void	uploadimg(t_data *data, void *textures, int i, int j);
 int		uploadmap(t_data *data, int p);
 void	uploadmov(t_data *data, int mov);
 
 //hooks.c
-void	playermove(t_data *data, int y, int x, int p);
+void	playermove(t_data *data, int i, int j, int p);
 int		keypress(int keycode, t_data *data);
 int		closex(void *data);
-int		collect(t_data *data);
 
 //textures.c
 void	putimg(t_data *data);
+void	putimg2(t_data *data);
 void	renderimg(t_data *data);
 void	destroytextures(t_data *data);
 
