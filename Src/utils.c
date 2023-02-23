@@ -61,13 +61,13 @@ void	iniciar(t_data *data)
 	data->itens.player = 0;
 	data->itens.player_x = 0;
 	data->itens.player_y = 0;
-	data->textures.wall = 0;
-	data->textures.empty = 0;
-	data->textures.collec = 0;
-	data->textures.exit = 0;
-	data->textures.exit2 = 0;
-	data->textures.players = 0;
-	data->textures.playerw = 0;
-	data->textures.playera = 0;
-	data->textures.playerd = 0;
+	data->text.wall = 0;
+	data->text.empty = 0;
+	data->text.collec = 0;
+	data->text.exit = 0;
+	data->text.exit2 = 0;
+	data->text.players = 0;
+	data->text.playerw = 0;
+	data->text.playera = 0;
+	data->text.playerd = 0;
 }

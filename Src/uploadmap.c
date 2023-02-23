@@ -31,36 +31,36 @@ void	uploadplayer(t_data *data, int i, int j, int p)
 {
 	if (p == 1)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.players, WSIZE * j, WSIZE * i);
+		data->text.players, WSIZE * j, WSIZE * i);
 	else if (p == 2)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.playerw, WSIZE * j, WSIZE * i);
+		data->text.playerw, WSIZE * j, WSIZE * i);
 	else if (p == 3)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.playera, WSIZE * j, WSIZE * i);
+		data->text.playera, WSIZE * j, WSIZE * i);
 	else if (p == 4)
 		mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, \
-		data->textures.playerd, WSIZE * j, WSIZE * i);
+		data->text.playerd, WSIZE * j, WSIZE * i);
 }
 
-void	uploadimg(t_data *data, void *textures, int i, int j)
+void	uploadimg(t_data *data, void *text, int i, int j)
 {
 	mlx_put_image_to_window(data->mlx.mlx_ptr, \
-	data->mlx.win_ptr, textures, WSIZE * j, WSIZE * i);
+	data->mlx.win_ptr, text, WSIZE * j, WSIZE * i);
 }
 
 void	uploadtextures(t_data *data, int i, int j, int p)
 {
 	if (data->lines[i][j] == '1')
-		uploadimg(data, data->textures.wall, i, j);
+		uploadimg(data, data->text.wall, i, j);
 	else if (data->lines[i][j] == '0')
-		uploadimg(data, data->textures.empty, i, j);
+		uploadimg(data, data->text.empty, i, j);
 	else if (data->lines[i][j] == 'C')
-		uploadimg(data, data->textures.collec, i, j);
+		uploadimg(data, data->text.collec, i, j);
 	else if (data->lines[i][j] == 'E' && data->itens.collec != 0)
-		uploadimg(data, data->textures.exit, i, j);
+		uploadimg(data, data->text.exit, i, j);
 	else if (data->lines[i][j] == 'E' && data->itens.collec == 0)
-		uploadimg(data, data->textures.exit2, i, j);
+		uploadimg(data, data->text.exit2, i, j);
 	else if (data->lines[i][j] == 'P')
 		uploadplayer(data, i, j, p);
 }

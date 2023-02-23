@@ -20,7 +20,7 @@
 
 # define WSIZE 64
 
-typedef struct s_textures{
+typedef struct s_text{
 	void	*collec;
 	void	*exit;
 	void	*exit2;
@@ -30,7 +30,7 @@ typedef struct s_textures{
 	void	*playerd;
 	void	*wall;
 	void	*empty;
-}	t_textures;
+}	t_text;
 
 typedef struct s_mlx{
 	void	*mlx_ptr;
@@ -55,7 +55,7 @@ typedef struct s_data{
 	int		mov;
 	t_itens	itens;
 	t_mlx	mlx;
-	t_textures	textures;
+	t_text	text;
 }	t_data;
 
 //floodfill.c
@@ -80,6 +80,7 @@ int		closex(void *data);
 void	putimg(t_data *data);
 void	putimg2(t_data *data);
 void	renderimg(t_data *data);
+void	renderimg2(t_data *data, int i, int j);
 void	destroytextures(t_data *data);
 
 //mlx.c
