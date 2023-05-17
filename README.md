@@ -2,7 +2,7 @@
 <p align="center">This repository contains code developed at 42 Porto for So_long Project.</p>
 <p align="center"> <img src="https://imgur.com/DWuR8X8.png"/> </p>
 <h2 align="left"> 📄 Subject </h2>
-<a href="https://github.com/Prreir/Get_next_line_42/blob/main/Extra/Subject.pdf" >Subject</a> access!
+<a href="https://github.com/Prreir/So_long_42/blob/main/Extra/en.subject.pdf" >Subject</a> access!
 
 ### Makefile Available Targets:
 `make` or `make all` - Compile _So_long_   
